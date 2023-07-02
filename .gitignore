@@ -5,3 +5,5 @@ Dockerfile
 .dockerignore
 .DS_Store
 html-report
+test/h_dirt
+test/u_dirt
