@@ -8,10 +8,12 @@ describe("Каталог", function () {
   beforeEach(() => {
     localStorage.clear();
     document.cookie = "";
+    store.dispatch({ type: "CLEAR_CART" });
   });
   afterEach(() => {
     localStorage.clear();
     document.cookie = "";
+    store.dispatch({ type: "CLEAR_CART" });
   });
   it("для каждого товара в каталоге отображается название, цена и ссылка на страницу с подробной информацией о товаре", async function () {
     const { container } = render(application);

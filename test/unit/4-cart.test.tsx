@@ -5,6 +5,30 @@ import application, { history } from "./helpers/Application";
 import store from "./helpers/store";
 
 describe("корзина", function () {
+  beforeEach(() => {
+    localStorage.clear();
+    document.cookie = "";
+    store.dispatch({ type: "CLEAR_CART" });
+  });
+  afterEach(() => {
+    localStorage.clear();
+    document.cookie = "";
+    store.dispatch({ type: "CLEAR_CART" });
+  });
+  it("в шапке рядом со ссылкой на корзину должно отображаться количество не повторяющихся товаров в ней", async function () {
+    localStorage.clear();
+    const { container } = render(application);
+    // загружаем товары
+    history.push("/catalog");
+
+    await waitFor(() => {
+      const elements = screen.getAllByTestId("0");
+      expect(elements.length).toBeGreaterThan(0);
+    });
+
+    
+  })
+
   it("тестирование отправки формы", async () => {
     localStorage.clear();
 
@@ -64,5 +88,8 @@ describe("корзина", function () {
     
     // BUG_ID === 8 
     expect(message?.classList?.contains("alert-success")).toEqual(true);
+
   });
+
+
 });
