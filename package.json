@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "start": "nodemon ./src/server/index.ts",
-    "test:unit": "jest",
-    "test:e2e": ".\\node_modules\\.bin\\hermione",
-    "test:e2e:gui": ".\\node_modules\\.bin\\hermione gui",
+    "test:unit": "cross-env BUG_ID=0 npx jest",
+    "test:e2e": "cross-env BUG_ID=0 npx hermione",
+    "test:e2e:gui": "hermione gui",
     "test": "npm run test:unit && npm run test:e2e",
     "build": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch"

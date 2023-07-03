@@ -110,7 +110,7 @@ describe("Общие требования", async function () {
     this.browser.deleteAllCookies();
     await this.browser.url("http://localhost:3000/hw/store");
 
-    await this.browser.setWindowSize(width, 575);
+    await this.browser.setWindowSize(575, 400);
 
     // проверяем что элемент присутствует на странице
     const elementNavbar = await this.browser.$(".navbar .navbar-nav");
